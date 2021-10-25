@@ -13,7 +13,8 @@ pipeline{
         }
         stage("Build Docker Image"){
             steps{
-                sh "docker build -t java_tomcat:v1 ."
+                sh "docker build -t devopsdock1/java_tomcat:v1.$BUILD_NUMBER ."
+                sh "docker build -t devopsdock1/java_tomcat ."
             }
         }
     }
