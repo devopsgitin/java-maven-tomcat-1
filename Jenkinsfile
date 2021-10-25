@@ -17,5 +17,18 @@ pipeline{
                 sh "docker build -t devopsdock1/java_tomcat ."
             }
         }
+        stage("Push Docker Image to Registry"){
+            environment{
+                DOCKER_LOGIN=credentials('docker_login')
+            }
+            steps{
+                sh "docker login -u $DOCKER_LOGIN_USR -p $DOCKER_LOGIN_PSW "
+                sh "docker push devopsdock1/java_tomcat:v1.$BUILD_NUMBER"
+                sh "docker push devopsdock1/java_tomcat"
+                sh "docker rmi devopsdock1/java_tomcat:v1.$BUILD_NUMBER"
+                sh "docker rmi devopsdock1/java_tomcat"
+                sh "docker logout"
+            }
+        }
     }
 }
