@@ -3,9 +3,13 @@
     hosts: node1
     gather_facts: false
     tasks:
-      - name: Remove Services
-        shell: docker-compose down
-      - name: Removing the Old Image
-        shell: docker rmi devopsdock1/java_tomcat
-      - name: Start Services
-        shell: docker-compose up -d
+      - name: Copying Docker Compose File
+        copy:
+          src: docker-compose.yaml
+          dest: /home/ubuntu/docker-compose.yaml
+      # - name: Remove Services
+      #   shell: docker-compose down
+      # - name: Removing the Old Image
+      #   shell: docker rmi devopsdock1/java_tomcat
+      # - name: Start Services
+      #   shell: docker-compose up -d
