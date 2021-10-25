@@ -11,9 +11,10 @@ pipeline{
                 sh "mvn clean package"
             }
         }
-        stage("Docker Image Build"){
+        stage("PWD"){
             steps{
-                sh "docker build -t myapp1:v1 ."
+                sh "pwd"
+                sh "ls"
             }
         }
     }
