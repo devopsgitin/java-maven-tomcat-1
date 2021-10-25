@@ -11,10 +11,9 @@ pipeline{
                 sh "mvn clean package"
             }
         }
-        stage("PWD"){
+        stage("Build Docker Image"){
             steps{
-                sh "pwd"
-                sh "ls"
+                sh "docker build -t java_tomcat:v1 ."
             }
         }
     }
