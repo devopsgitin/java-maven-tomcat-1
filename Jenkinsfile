@@ -30,5 +30,10 @@ pipeline{
                 sh "docker logout"
             }
         }
+        stage("Deploying APP"){
+            steps{
+                sh "ansible-playbook ansibleplay.yaml"
+            }
+        }
     }
 }
