@@ -8,6 +8,9 @@
 		It is now
 		<%= new java.util.Date() %></p>
 	<p>
-		You are coming from 
+		Request From 
 		<%= request.getRemoteAddr()  %></p>
+	<p>
+		App Hosted on 
+		<%= request.getLocalAddr()  %></p>
 </body>
