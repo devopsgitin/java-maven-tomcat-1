@@ -1,0 +1,9 @@
+---
+  - name: Deploy App
+    hosts: node1
+    gather_facts: false
+    tasks:
+      - name: Remove Services
+        shell: docker-compose down
+      - name: Start Services
+        shell: docker-compose up -d
